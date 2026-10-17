@@ -1,0 +1,18 @@
+// Interface texts, project overview texts and run commands
+const UI={
+ en:{t:"Defense prep: Delivery Quotes",ov:"Project & how to run",full:"Full code",steps:"Explained step by step",what:"What this file does"},
+ ru:{t:"Подготовка к защите: Delivery Quotes",ov:"О проекте и запуск",full:"Полный код",steps:"Разбор по частям",what:"Что делает файл"},
+ kk:{t:"Қорғауға дайындық: Delivery Quotes",ov:"Жоба және іске қосу",full:"Толық код",steps:"Бөлшектеп түсіндіру",what:"Бұл файл не істейді"}
+};
+const OV={
+ en:{h:"What is this project?",p:["It is a small C# program for a courier company. You give it a CSV file with delivery orders (id, customer, distance in km, weight in kg). It checks the file, throws out orders that are too far or too heavy, calculates a price for each remaining order, and prints a list of quotes with a total.","The main idea of functional programming here: the program is a chain of small functions. Each function takes data, returns new data, and changes nothing else. Reading files and printing are kept outside this chain, in Program.cs.","The price rule can be switched: Standard (600 + 120 per km) or Express (1000 + 180 per km). The chain of functions stays exactly the same; only the rule we hand to it changes."],flow:"Data flow",run:"How to run",req:"You need the .NET SDK 8. Open a terminal in the folder that contains Assignment5.sln and type:",files:"Files (click to open)"},
+ ru:{h:"Что это за проект?",p:["Это небольшая программа на C# для курьерской компании. Ей дают CSV-файл с заказами (id, клиент, расстояние в км, вес в кг). Она проверяет файл, отбрасывает слишком далёкие и слишком тяжёлые заказы, считает цену для остальных и печатает список котировок с итогом.","Главная идея функционального программирования здесь: программа — это цепочка маленьких функций. Каждая функция берёт данные, возвращает новые данные и больше ничего не меняет. Чтение файла и печать вынесены за пределы цепочки, в Program.cs.","Правило цены можно переключать: Standard (600 + 120 за км) или Express (1000 + 180 за км). Цепочка функций остаётся той же самой, меняется только правило, которое мы ей передаём."],flow:"Поток данных",run:"Как запустить",req:"Нужен .NET SDK 8. Откройте терминал в папке, где лежит Assignment5.sln, и введите:",files:"Файлы (нажмите, чтобы открыть)"},
+ kk:{h:"Бұл қандай жоба?",p:["Бұл курьерлік компанияға арналған шағын C# бағдарламасы. Оған тапсырыстары бар CSV файл беріледі (id, клиент, қашықтық км, салмақ кг). Бағдарлама файлды тексереді, тым алыс немесе тым ауыр тапсырыстарды алып тастайды, қалғандарының бағасын есептейді және жалпы сомасы бар баға ұсыныстарының тізімін шығарады.","Мұндағы функционалдық бағдарламалаудың негізгі идеясы: бағдарлама — кішкентай функциялардың тізбегі. Әр функция деректі алады, жаңа деректі қайтарады және басқа ештеңені өзгертпейді. Файлды оқу мен басып шығару тізбектен тыс, Program.cs ішінде жасалады.","Баға ережесін ауыстыруға болады: Standard (600 + әр км үшін 120) немесе Express (1000 + әр км үшін 180). Функциялар тізбегі дәл сол күйінде қалады, тек оған берілетін ереже ауысады."],flow:"Деректер ағыны",run:"Қалай іске қосу керек",req:".NET SDK 8 қажет. Assignment5.sln жатқан папкада терминал ашып, мынаны теріңіз:",files:"Файлдар (ашу үшін басыңыз)"}
+};
+const CMD=`dotnet build
+dotnet run --project src/DeliveryQuotes.App -- data/requests.csv standard
+dotnet run --project src/DeliveryQuotes.App -- data/requests.csv express
+dotnet run --project src/DeliveryQuotes.App -- data/requests.csv both
+dotnet run --project src/DeliveryQuotes.App -- data/requests_invalid.csv standard
+dotnet test`;
+const FLOW="requests.csv → RequestParser → SelectEligible → PriceRequests (policy) → BuildSummary → Program prints";

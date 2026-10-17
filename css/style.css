@@ -1,0 +1,27 @@
+:root{--bg:#fafaf7;--fg:#1d1d1b;--mut:#66665f;--card:#fff;--line:#deded6;--acc:#1f6feb;--code:#f1f1ec;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17171a;--fg:#ececea;--mut:#a0a09a;--card:#202024;--line:#34343a;--acc:#6aa4ff;--code:#121215;--on:#101014}}
+:root[data-theme="dark"]{--bg:#17171a;--fg:#ececea;--mut:#a0a09a;--card:#202024;--line:#34343a;--acc:#6aa4ff;--code:#121215;--on:#101014}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+header b{font-size:15px}
+.lang button,nav button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:9px 14px;min-height:40px;border-radius:8px;cursor:pointer}
+.lang button.on,nav button.on{background:var(--acc);color:var(--on);border-color:var(--acc)}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:24px;margin:0 0 6px;word-break:break-word}
+h2{font-size:18px;margin:28px 0 10px}
+p{margin:8px 0}.mut{color:var(--mut)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px;overflow-x:auto;font:13px/1.5 ui-monospace,Consolas,monospace;margin:10px 0;max-width:100%}
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px 10px;margin:14px 0}
+.num{display:inline-block;background:var(--acc);color:var(--on);border-radius:50%;width:22px;height:22px;text-align:center;font-size:13px;line-height:22px;margin-right:6px}
+a{color:var(--acc);cursor:pointer}
+li{margin:4px 0}
+html{-webkit-text-size-adjust:100%}
+nav{flex-wrap:nowrap;overflow-x:auto;position:relative;-webkit-overflow-scrolling:touch}
+nav button{flex:0 0 auto;white-space:nowrap}
+.pager{display:flex;gap:10px;margin:28px 0 0}
+.pager button{flex:1;font:inherit;font-size:15px;min-height:46px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:10px;padding:8px 10px;cursor:pointer;word-break:break-word}
+@media (max-width:600px){main{padding:16px 12px 40px}h1{font-size:21px}pre{white-space:pre-wrap;word-break:break-word;font-size:12.5px}.note{padding:4px 10px 8px}.pager{flex-direction:column}}
